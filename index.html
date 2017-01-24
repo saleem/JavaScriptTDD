@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/board.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div>
+            <span id="player-label">Player #</span>
+            <span id="player-number"></span>
+        </div>
+        <div id="board">
+            <table>
+                <tr id="row1">
+                    <td id="cell1" class="cell"></td>
+                    <td id="cell2" class="cell v"></td>
+                    <td id="cell3" class="cell"></td>
+                </tr>
+                <tr id="row2">
+                    <td id="cell4" class="cell h"></td>
+                    <td id="cell5" class="cell v h"></td>
+                    <td id="cell6" class="cell h"></td>
+                </tr>
+                <tr id="row3">
+                    <td id="cell7" class="cell"></td>
+                    <td id="cell8" class="cell v"></td>
+                    <td id="cell9" class="cell"></td>
+                </tr>
+            </table>
+        </div>
+
+        <script src="js/src/CellEventListener.js"></script>
+        <script src="js/src/Player.js"></script>
+        <script src="js/src/Main.js"></script>
+    </body>
+</html>
