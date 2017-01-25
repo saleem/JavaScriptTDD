@@ -1,5 +1,5 @@
 describe("Player", function () {
-    var game = require('../src/Player');
+    var tictactoe = require('../src/Player');
 
     var cell;
 
@@ -8,14 +8,14 @@ describe("Player", function () {
     });
 
     it("should mark cell with an 'O' when the player's symbol is 'O'", function () {
-        var player = game.player({symbol: "O"});
+        var player = tictactoe.player({symbol: "O"});
         player.move(cell);
 
         expect(cell.innerHTML).toEqual("O");
     });
 
     it("should mark cell with an 'X' when the player's symbol is 'X'", function () {
-        var player = game.player({symbol: "X"});
+        var player = tictactoe.player({symbol: "X"});
 
         player.move(cell);
 

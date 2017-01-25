@@ -1,13 +1,19 @@
 "use strict";
 
-var game = game || {};
+var tictactoe = tictactoe || {};
 
-game.cellEventListener = function(parameters){
+tictactoe.cellEventListener = function(parameters){
     var that = {};
     var players = parameters.players;
+    var game = parameters.game;
+
+
     var currentPlayer = 0;
 
     that.handle = function(eventToHandle) {
+        game.takeTurn();
+
+
         if (!eventToHandle.target.innerHTML){
             players[currentPlayer].move(eventToHandle.target);
         }
@@ -17,4 +23,4 @@ game.cellEventListener = function(parameters){
     return that;
 };
 
-module.exports = game;
+module.exports = tictactoe;

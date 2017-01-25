@@ -1,11 +1,12 @@
 describe("CellEventListener", function () {
-    var game = require('../src/CellEventListener');
+    var tictactoe = require('../src/CellEventListener');
 
     var cell1;
     var firstMove;
     var player1;
     var players;
     var listener;
+    var game;
 
     function markCell(cell){
         cell.innerHTML = "#";
@@ -16,7 +17,14 @@ describe("CellEventListener", function () {
         firstMove = {target: cell1};
         player1 = jasmine.createSpyObj("player", ["move"]);
         players = [player1];
-        listener = game.cellEventListener({players: players});
+        game = jasmine.createSpyObj("game", ["takeTurn"]);
+        listener = tictactoe.cellEventListener({game: game, players: players});
+    });
+
+    it("should make game take turn", function () {
+        listener.handle(firstMove);
+
+        expect(game.takeTurn).toHaveBeenCalled();
     });
 
     it("should make player move", function () {

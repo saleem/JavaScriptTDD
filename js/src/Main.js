@@ -1,11 +1,16 @@
 "use strict";
 
-var game = game || {};
+var tictactoe = tictactoe || {};
 
-game.board = document.getElementById("board");
+tictactoe.board = document.getElementById("board");
 
-var playerOne = game.player({symbol: "X"});
-var playerTwo = game.player({symbol: "O"});
+var playerOne = tictactoe.player({symbol: "X"});
+var playerTwo = tictactoe.player({symbol: "O"});
 var players = [playerOne, playerTwo];
+var game = tictactoe.game();
+var cellEventListener = tictactoe.cellEventListener({
+    players: players,
+    game: game
+});
 
-game.board.addEventListener("click", game.cellEventListener({players: players}).handle);
+tictactoe.board.addEventListener("click", cellEventListener.handle);

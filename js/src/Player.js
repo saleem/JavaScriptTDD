@@ -1,8 +1,8 @@
 "use strict";
 
-var game = game || {};
+var tictactoe = tictactoe || {};
 
-game.player = function(parameters){
+tictactoe.player = function(parameters){
     var that = {};
 
     var symbol = parameters.symbol;
@@ -14,4 +14,4 @@ game.player = function(parameters){
     return that;
 };
 
-module.exports = game;
+module.exports = tictactoe;
