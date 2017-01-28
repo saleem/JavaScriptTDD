@@ -6,6 +6,12 @@ tictactoe.player = function(parameters){
     var that = {};
 
     var symbol = parameters.symbol;
+    var board = parameters.board;
+    var input = parameters.input;
+
+    that.makeMove = function() {
+        board.mark(input.validMove(), "X");
+    };
 
     that.move = function(cell) {
         cell.innerHTML = symbol;
@@ -13,5 +19,3 @@ tictactoe.player = function(parameters){
 
     return that;
 };
-
-module.exports = tictactoe;

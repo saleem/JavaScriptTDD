@@ -22,5 +22,3 @@ tictactoe.cellEventListener = function(parameters){
 
     return that;
 };
-
-module.exports = tictactoe;

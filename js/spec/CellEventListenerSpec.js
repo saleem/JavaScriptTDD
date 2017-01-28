@@ -1,5 +1,6 @@
 describe("CellEventListener", function () {
-    var tictactoe = require('../src/CellEventListener');
+    var nameSpace = require("../spec/support/nameSpace");
+    var tictactoe = nameSpace("src/CellEventListener.js");
 
     var cell1;
     var firstMove;

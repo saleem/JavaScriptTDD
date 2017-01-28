@@ -2,15 +2,21 @@
 
 var tictactoe = tictactoe || {};
 
-tictactoe.board = document.getElementById("board");
+var input = tictactoe.input();
+var board = tictactoe.board({cells: [" ", " ", " ", " ", " ", " ", " ", " ", " "]});
+var playerOne = tictactoe.player({symbol: "X", board: board, input: input});
+var playerTwo = tictactoe.player({symbol: "O", board: board, input: input});
+var game = tictactoe.game({
+    playerOne: playerOne,
+    playerTwo: playerTwo,
+    currentPlayer: playerOne
+});
 
-var playerOne = tictactoe.player({symbol: "X"});
-var playerTwo = tictactoe.player({symbol: "O"});
 var players = [playerOne, playerTwo];
-var game = tictactoe.game();
 var cellEventListener = tictactoe.cellEventListener({
     players: players,
     game: game
 });
 
-tictactoe.board.addEventListener("click", cellEventListener.handle);
+tictactoe.boardElement = document.getElementById("board");
+tictactoe.boardElement.addEventListener("click", cellEventListener.handle);
