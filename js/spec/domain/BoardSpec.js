@@ -28,6 +28,26 @@ describe("Board", function () {
        expect(cells[1]).toBe("X");
     });
 
+    it("should display message when an attempt to change and occupied cell is made", function() {
+       spyOn(board, 'displayMessage').and.callThrough();
+       board.mark(2, "X");
+       board.mark(2, "O");
+       expect(board.displayMessage).toHaveBeenCalled();
+    });
+
+    xit("should not change turns when a move is disallowed", function() {
+        
+    });
+
+    it("should return true when a symbol is correctly placed in a cell", function() {
+        expect(board.mark(2, "X")).toEqual(true);
+    });
+
+    it("should return false when a symbol cannot be placed into a cell", function() {
+        board.mark(2, "X");
+        expect(board.mark(2, "O")).toEqual(false);
+    });
+
     it("should change cell 0 to 'Q' when index is 1 and symbol is 'Q' ", function () {
         board.mark(1, "Q");
 
