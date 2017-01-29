@@ -7,14 +7,14 @@ tictactoe.pageObject = function(parameters){
 
     var document = parameters.document;
     var elementIds = parameters.elementIds;
-    var boardState = parameters.boardState;
 
-    that.updateBoard = function() {
-        var index = 0;
+    that.boardElements = function() {
+        var elements = [];
         elementIds.forEach(function(elementId){
-            document.getElementById(elementId).innerHTML = boardState[index++];
-        });
-    };
+            elements.push(document.getElementById(elementId));
+        })
+        return elements;
+    }
 
     that.indexOfCell = function(id) {
         return elementIds.indexOf(id) + 1;

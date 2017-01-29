@@ -9,7 +9,11 @@ tictactoe.binder = function(parameters){
     var input = parameters.input;
 
     that.bindResults = function() {
-        pageObject.updateBoard(boardState);
+        var index = 0;
+        var boardElements = pageObject.boardElements();
+        boardElements.forEach(function(element){
+            element.innerHTML = boardState[index++];
+        });
     };
 
     that.applyEvent = function(event) {
