@@ -22,16 +22,16 @@ describe("CellEventListener", function () {
         listener = tictactoe.cellEventListener({game: game, binder: binder});
     });
 
-    it("should make game take turn", function () {
+    it("should make game take exactly one turn", function () {
         listener.handle(moveInCell1);
 
-        expect(game.takeTurn).toHaveBeenCalled();
+        expect(game.takeTurn.calls.count()).toEqual(1);
     });
 
-    it("should bind results", function () {
+    it("should bind results once", function () {
         listener.handle(moveInCell1);
 
-        expect(binder.bindResults).toHaveBeenCalled();
+        expect(binder.bindResults.calls.count()).toEqual(1);
     });
 
     it("should try to move in desired cell", function () {
