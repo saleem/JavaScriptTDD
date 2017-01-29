@@ -13,14 +13,24 @@ describe("Player", function () {
     });
 
 
-    it("mark board in cell from input", function () {
+    it("should mark board in cell from input", function () {
         input = jasmine.createSpyObj("input", ["validMove"]);
         input.validMove.and.returnValue(1);
+        var player = tictactoe.player({symbol: "X", board: board, input: input});
 
-        var player = tictactoe.player({symbol: "O", board: board, input: input});
         player.makeMove();
 
         expect(board.mark).toHaveBeenCalledWith(1, "X");
+    });
+
+    it("should mark board with player's symbol", function () {
+        input = jasmine.createSpyObj("input", ["validMove"]);
+        input.validMove.and.returnValue(1);
+        var player = tictactoe.player({symbol: "O", board: board, input: input});
+
+        player.makeMove();
+
+        expect(board.mark).toHaveBeenCalledWith(1, "O");
     });
 
     it("should mark cell with an 'O' when the player's symbol is 'O'", function () {

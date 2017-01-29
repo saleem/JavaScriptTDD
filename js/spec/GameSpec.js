@@ -9,6 +9,7 @@ describe("Game", function () {
     beforeEach(function () {
         playerOne = jasmine.createSpyObj("player", ["makeMove"]);
         playerTwo = jasmine.createSpyObj("player", ["makeMove"]);
+
         game = tictactoe.game({
             playerOne: playerOne,
             playerTwo: playerTwo,
@@ -28,4 +29,5 @@ describe("Game", function () {
 
         expect(playerTwo.makeMove).toHaveBeenCalled();
     });
+
 });

@@ -3,11 +3,12 @@ describe("CellEventListener", function () {
     var tictactoe = nameSpace("src/CellEventListener.js");
 
     var cell1;
-    var firstMove;
+    var moveInCell1;
     var player1;
     var players;
-    var listener;
+    var binder;
     var game;
+    var listener;
 
     function markCell(cell){
         cell.innerHTML = "#";
@@ -15,43 +16,36 @@ describe("CellEventListener", function () {
 
     beforeEach(function () {
         cell1 = {};
-        firstMove = {target: cell1};
+        moveInCell1 = {target: cell1};
         player1 = jasmine.createSpyObj("player", ["move"]);
         players = [player1];
+        binder = jasmine.createSpyObj("binder", ["bindResults", "applyEvent"]);
         game = jasmine.createSpyObj("game", ["takeTurn"]);
-        listener = tictactoe.cellEventListener({game: game, players: players});
+        listener = tictactoe.cellEventListener({game: game, binder: binder, players: players});
     });
 
     it("should make game take turn", function () {
-        listener.handle(firstMove);
+        listener.handle(moveInCell1);
 
         expect(game.takeTurn).toHaveBeenCalled();
     });
 
-    it("should make player move", function () {
-        listener.handle(firstMove);
+    it("should bind results", function () {
+        listener.handle(moveInCell1);
 
-        expect(player1.move).toHaveBeenCalledWith(cell1);
+        expect(binder.bindResults).toHaveBeenCalled();
     });
 
-    it("should alternate players", function () {
-        var player2 = jasmine.createSpyObj("player", ["move"]);
-        players.push(player2);
+    it("should try to move in desired cell", function () {
+        listener.handle(moveInCell1);
 
-
-        var cell2 = {};
-        var secondMove = {target: cell2};
-
-        listener.handle(firstMove);
-        listener.handle(secondMove);
-
-        expect(player2.move).toHaveBeenCalledWith(cell2);
+        expect(binder.applyEvent).toHaveBeenCalledWith(moveInCell1)
     });
 
     it("should not make move when cell has already marked", function () {
         markCell(cell1);
 
-        listener.handle(firstMove);
+        listener.handle(moveInCell1);
 
         expect(player1.move).not.toHaveBeenCalled();
     });

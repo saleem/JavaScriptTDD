@@ -10,7 +10,7 @@ tictactoe.player = function(parameters){
     var input = parameters.input;
 
     that.makeMove = function() {
-        board.mark(input.validMove(), "X");
+        board.mark(input.validMove(), symbol);
     };
 
     that.move = function(cell) {

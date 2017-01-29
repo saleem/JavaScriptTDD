@@ -8,10 +8,10 @@ describe("Input", function () {
         input = tictactoe.input();
     });
 
-    // it("should change cell 0 to 'X' when index is 1 and symbol is 'X' ", function () {
-    //     board.mark(1, "X");
-    //
-    //     expect(cells[0]).toBe("X");
-    // });
+    it("should report a move as a valid move", function () {
+        input.tryMove(1);
+
+        expect(input.validMove()).toBe(1);
+    });
 
 });

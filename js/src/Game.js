@@ -7,6 +7,7 @@ tictactoe.game = function(parameters){
     var playerOne = parameters.playerOne;
     var playerTwo = parameters.playerTwo;
     var currentPlayer = parameters.currentPlayer;
+    var binder = parameters.binder;
 
     that.takeTurn = function() {
         currentPlayer.makeMove();
