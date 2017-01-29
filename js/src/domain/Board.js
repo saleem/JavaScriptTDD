@@ -22,7 +22,6 @@ tictactoe.board = function(parameters){
         }
     };
     return that;
-
 };
 
 function isEmpty(cell) {
