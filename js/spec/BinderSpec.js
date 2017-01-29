@@ -8,8 +8,8 @@ describe("Binder", function () {
     var binder;
 
     beforeEach(function () {
-        boardState = ["", ""];
         pageObject = jasmine.createSpyObj("pageObject", ["updateBoard", "indexOfCell"]);
+        boardState = ["", ""];
         input = jasmine.createSpyObj("input", ["tryMove"]);
         binder = tictactoe.binder({pageObject: pageObject, boardState: boardState, input: input});
     });

@@ -17,11 +17,9 @@ describe("CellEventListener", function () {
     beforeEach(function () {
         cell1 = {};
         moveInCell1 = {target: cell1};
-        player1 = jasmine.createSpyObj("player", ["move"]);
-        players = [player1];
         binder = jasmine.createSpyObj("binder", ["bindResults", "applyEvent"]);
         game = jasmine.createSpyObj("game", ["takeTurn"]);
-        listener = tictactoe.cellEventListener({game: game, binder: binder, players: players});
+        listener = tictactoe.cellEventListener({game: game, binder: binder});
     });
 
     it("should make game take turn", function () {
@@ -40,13 +38,5 @@ describe("CellEventListener", function () {
         listener.handle(moveInCell1);
 
         expect(binder.applyEvent).toHaveBeenCalledWith(moveInCell1)
-    });
-
-    it("should not make move when cell has already marked", function () {
-        markCell(cell1);
-
-        listener.handle(moveInCell1);
-
-        expect(player1.move).not.toHaveBeenCalled();
     });
 });

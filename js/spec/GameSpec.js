@@ -2,9 +2,9 @@ describe("Game", function () {
     var nameSpace = require("../spec/support/nameSpace");
     var tictactoe = nameSpace("src/Game.js");
 
-    var game;
     var playerOne;
     var playerTwo;
+    var game;
 
     beforeEach(function () {
         playerOne = jasmine.createSpyObj("player", ["makeMove"]);

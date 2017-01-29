@@ -13,14 +13,12 @@ describe("PageObject", function () {
         document = jasmine.createSpyObj("document", ["getElementById"]);
         elementOne = {innerHTML: ""};
         elementTwo = {innerHTML: ""};
-
     });
 
     it("should update a board element from the board state", function () {
         boardState = ["A"];
         elementIds = ["cell1"];
         document.getElementById.and.returnValue(elementOne);
-        pageObject = tictactoe.pageObject({document: document, elementIds: elementIds, boardState: boardState});
 
         pageObject.updateBoard();
 

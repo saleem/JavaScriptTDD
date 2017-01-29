@@ -16,9 +16,7 @@ var game = tictactoe.game({
     currentPlayer: playerOne
 });
 
-var players = [playerOne, playerTwo];
 var cellEventListener = tictactoe.cellEventListener({
-    players: players,
     game: game,
     binder: binder
 });

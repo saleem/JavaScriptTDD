@@ -13,9 +13,5 @@ tictactoe.player = function(parameters){
         board.mark(input.validMove(), symbol);
     };
 
-    that.move = function(cell) {
-        cell.innerHTML = symbol;
-    };
-
     return that;
 };
