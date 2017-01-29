@@ -22,6 +22,12 @@ describe("Board", function () {
         expect(cells[1]).toBe("X");
     });
 
+    it("should not change a cell when it already has a symbol", function() {
+       board.mark(2, "X");
+       board.mark(2, "O");
+       expect(cells[1]).toBe("X");
+    });
+
     it("should change cell 0 to 'Q' when index is 1 and symbol is 'Q' ", function () {
         board.mark(1, "Q");
 

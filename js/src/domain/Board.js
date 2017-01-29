@@ -8,8 +8,14 @@ tictactoe.board = function(parameters){
     var cells = parameters.cells;
 
     that.mark = function(cellIndex, symbol) {
-        cells[cellIndex-1] = symbol;
+        if(isEmpty(cells[cellIndex-1])) {
+            cells[cellIndex-1] = symbol;
+        }
     };
 
     return that;
 };
+
+function isEmpty(cell) {
+    return !cell || 0 === cell.length || !cell.trim()
+}
