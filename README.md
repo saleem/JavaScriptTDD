@@ -10,9 +10,8 @@ This is a good intro & reference: http://jasmine.github.io/2.0/introduction.html
 
 ## Setup
 Make sure that XCode and Homebrew are already installed
-1. Install NodeJS `brew install node`
-2. Install Jasmine `npm install -g jasmine`
-3. 
+ 1. Install NodeJS `brew install node`
+ 2. Install Jasmine `npm install -g jasmine` 
 
 ## Exercise
 Implement these user stories by creating a new object using the functional object creation pattern
