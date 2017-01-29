@@ -1,6 +1,6 @@
 describe("Board", function () {
-    var nameSpace = require("../spec/support/nameSpace");
-    var tictactoe = nameSpace("src/Board.js");
+    var nameSpace = require("../../spec/support/nameSpace");
+    var tictactoe = nameSpace("src/domain/Board.js");
 
     var cells;
     var board;

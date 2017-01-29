@@ -1,6 +1,6 @@
 describe("Input", function () {
-    var nameSpace = require("../spec/support/nameSpace");
-    var tictactoe = nameSpace("src/Input.js");
+    var nameSpace = require("../../spec/support/nameSpace");
+    var tictactoe = nameSpace("src/domain/Input.js");
 
     var input;
 

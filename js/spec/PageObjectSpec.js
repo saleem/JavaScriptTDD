@@ -19,6 +19,7 @@ describe("PageObject", function () {
         boardState = ["A"];
         elementIds = ["cell1"];
         document.getElementById.and.returnValue(elementOne);
+        pageObject = tictactoe.pageObject({document: document, elementIds: elementIds, boardState: boardState});
 
         pageObject.updateBoard();
 
